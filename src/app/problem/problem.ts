@@ -4,6 +4,7 @@ import { Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { fix } from '../services/fix'; 
 import { TranslatePipe, TranslateService } from '@ngx-translate/core';
+import { AfterViewInit } from '@angular/core';
 
 
 
@@ -16,7 +17,7 @@ import { TranslatePipe, TranslateService } from '@ngx-translate/core';
   templateUrl: './problem.html',
   styleUrl: './problem.css',
 })
-export class Problem implements OnInit {
+export class Problem implements OnInit, AfterViewInit {
 
 
   map: any;
@@ -42,6 +43,11 @@ export class Problem implements OnInit {
 selectedFile: File | null = null;
 
   
+ ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.initMap();
+    }, 0);
+  }
   constructor(
     private api: fix,
     private cdr: ChangeDetectorRef,
@@ -68,11 +74,6 @@ ngOnInit(): void {
 }
 
 
- ngAfterViewInit(){
-
-    this.initMap();
-
-  }
 
 getReports() {
   this.api.getReports().subscribe({
@@ -135,107 +136,93 @@ getcategories() {
     }
 
 
-  async initMap() {
+
+
+
+async initMap(): Promise<void> {
+  try {
     const L = await import('leaflet');
+
     if (this.map) {
       return;
     }
+
     const mapElement = document.getElementById('map');
+
     if (!mapElement) {
-      console.error('Map element not found');
+      console.error('❌ Map element not found');
       return;
     }
 
-    delete (L.Icon.Default.prototype as any)._getIconUrl;
-    L.Icon.Default.mergeOptions({
-      iconRetinaUrl: 'assets/leaflet/marker-icon-2x.png',
-      iconUrl: 'assets/leaflet/marker-icon.png',
-      shadowUrl: 'assets/leaflet/marker-shadow.png',
-    });
+    this.map = L.map(mapElement).setView(
+      [41.7151, 44.8271],
+      12
+    );
 
-  this.map = L.map(mapElement).setView(
-    [41.7151, 44.8271],
-    12
-  );
-
-  L.tileLayer(
-    'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-    {
-      attribution: '&copy; OpenStreetMap contributors'
-    }
-  ).addTo(this.map);
-
-
-  this.map.on('click', (event: any) => {
-
-    const lat = event.latlng.lat;
-    const lng = event.latlng.lng;
-
-    this.problem.latitude = lat;
-    this.problem.longitude = lng;
-    console.log('Latitude:', lat);
-    console.log('Longitude:', lng);
-
-    if (this.marker) {
-      this.map.removeLayer(this.marker);
-    }
-
-    const customIcon = L.divIcon({
-
-      className: 'problem-location-wrapper',
-
-      html: `
-        <div class="problem-location">
-          <div class="location-pulse"></div>
-          <div class="location-pin">
-            <span>📍</span>
-          </div>
-        </div>
-      `,
-
-      iconSize: [50, 50],
-      iconAnchor: [25, 25]
-
-    });
-
-    this.marker = L.marker(
-      [lat, lng],
+    L.tileLayer(
+      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
       {
-        icon: customIcon
+        attribution: '&copy; OpenStreetMap contributors',
+        maxZoom: 19
       }
     ).addTo(this.map);
 
-   
-    this.marker
-      .bindPopup(`
-        <div class="problem-popup">
-          <strong>📍 ადგილი მონიშნულია</strong>
-          <br>
-          <span>აქ არის პრობლემა</span>
-        </div>
-      `)
-      .openPopup();
+    this.map.on('click', (event: any) => {
 
-    this.cdr.detectChanges();
+      const lat = event.latlng.lat;
+      const lng = event.latlng.lng;
 
-  });
+      this.problem.latitude = lat;
+      this.problem.longitude = lng;
 
+      if (this.marker) {
+        this.map!.removeLayer(this.marker);
+      }
 
+      const customIcon = L.divIcon({
+        className: 'problem-location-wrapper',
 
-  setTimeout(() => {
+        html: `
+          <div class="problem-location">
+            <div class="location-pulse"></div>
+            <div class="location-pin">
+              <span>📍</span>
+            </div>
+          </div>
+        `,
 
-    if (this.map) {
-      this.map.invalidateSize();
-    }
+        iconSize: [50, 50],
+        iconAnchor: [25, 25]
+      });
 
-  }, 100);
+      this.marker = L.marker(
+        [lat, lng],
+        { icon: customIcon }
+      ).addTo(this.map!);
+
+      this.marker
+        .bindPopup(`
+          <div class="problem-popup">
+            <strong>📍 ადგილი მონიშნულია</strong>
+            <br>
+            <span>აქ არის პრობლემა</span>
+          </div>
+        `)
+        .openPopup();
+
+      this.cdr.detectChanges();
+    });
+
+    setTimeout(() => {
+      this.map?.invalidateSize();
+    }, 300);
+
+    console.log('✅ Map is running');
+
+  } catch (error) {
+    console.error('❌ Map error:', error);
+  }
 }
-
-
-
-
-
-
 
 
 
