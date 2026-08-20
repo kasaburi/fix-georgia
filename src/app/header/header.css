@@ -173,7 +173,7 @@ header {
 
 
 
-@media screen and (min-width: 811px) and (max-width:1200px){
+@media screen and (min-width: 811px) and (max-width: 1300px){
 
     header{
          justify-content: space-around; 
