@@ -217,16 +217,13 @@ login(user:any){
 
 
 googleLogin(token: string) {
-
   return this.http.post<any>(
-    `${this.api}/auth/google`,
+    `${this.api}/google`,
     {
       token: token
     }
   );
-
 }
-
 
 
 
