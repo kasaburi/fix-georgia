@@ -1,4 +1,10 @@
-import { Component, EventEmitter, Output, OnInit } from '@angular/core';
+import {
+  Component,
+  EventEmitter,
+  Output,
+  OnInit
+} from '@angular/core';
+
 import { fix } from '../services/fix';
 import { Router } from '@angular/router';
 
@@ -13,19 +19,14 @@ declare const google: any;
 })
 export class Google implements OnInit {
 
-
   @Output() googleSuccess = new EventEmitter<string>();
 
   errorMessage = '';
 
-
   constructor(
-     private fix: fix,
-  private router: Router
+    private fix: fix,
+    private router: Router
   ) {}
-
-
-
 
   ngOnInit(): void {
 
@@ -34,8 +35,6 @@ export class Google implements OnInit {
       window.location.origin
     );
 
-
-    // Google script ჩატვირთულია თუ არა
     if (
       typeof google === 'undefined' ||
       !google.accounts ||
@@ -52,31 +51,25 @@ export class Google implements OnInit {
       return;
     }
 
-
     console.log(
       '✅ Google Identity Services ჩაიტვირთა'
     );
 
 
-    // Google Login-ის ინიციალიზაცია
     google.accounts.id.initialize({
 
       client_id:
         '647692072086-fpr1ocoh29bckr2tehuhl1724dui9qur.apps.googleusercontent.com',
 
-
       callback: (response: any) => {
 
         console.log(
-          'Google Response:',
+          '✅ Google Response:',
           response
         );
 
-
-        // Google credential/token
         const googleToken =
           response?.credential;
-
 
         if (!googleToken) {
 
@@ -90,13 +83,12 @@ export class Google implements OnInit {
           return;
         }
 
-
         console.log(
           '✅ Google Token მიღებულია'
         );
 
 
-        // Token-ის გაგზავნა FastAPI backend-ში
+        // Google token → FastAPI
         this.fix
           .googleLogin(googleToken)
           .subscribe({
@@ -109,22 +101,29 @@ export class Google implements OnInit {
               );
 
 
-              // JWT access token
-              if (res?.access_token) {
+              // აუცილებლად უნდა არსებობდეს
+              // ჩვენი backend-ის access_token
+              if (!res?.access_token) {
 
-                localStorage.setItem(
-                  'token',
-                  res.access_token
+                console.error(
+                  '❌ Backend-მა access_token არ დააბრუნა'
                 );
 
-                console.log(
-                  '✅ Access token შენახულია'
-                );
+                this.errorMessage =
+                  'ავტორიზაცია ვერ დასრულდა.';
 
+                return;
               }
 
 
-              // მომხმარებლის მონაცემები
+              // JWT token
+              localStorage.setItem(
+                'token',
+                res.access_token
+              );
+
+
+              // User
               if (res?.user) {
 
                 localStorage.setItem(
@@ -132,36 +131,42 @@ export class Google implements OnInit {
                   JSON.stringify(res.user)
                 );
 
-
                 console.log(
-                  '✅ User შენახულია:',
+                  '✅ User saved:',
                   res.user
                 );
 
 
-                // Parent component-ს ვატყობინებთ
                 this.googleSuccess.emit(
                   res.user.role || 'user'
                 );
 
-
-                // Google Login წარმატებულია
-                // გადავდივართ Naxva გვერდზე
-                this.router.navigate([
-                  '/naxva'
-                ]);
-
               }
-              else {
 
-                console.error(
-                  '❌ Backend response-ში user არ არის'
-                );
 
-                this.errorMessage =
-                  'მომხმარებლის მონაცემები ვერ მივიღეთ.';
+              console.log(
+                '✅ Google authentication successful'
+              );
 
-              }
+
+              // Naxva გვერდზე გადასვლა
+              this.router.navigate(['/naxva'])
+                .then((success) => {
+
+                  console.log(
+                    '➡️ Navigation:',
+                    success
+                  );
+
+                })
+                .catch((error) => {
+
+                  console.error(
+                    '❌ Navigation error:',
+                    error
+                  );
+
+                });
 
             },
 
@@ -173,28 +178,23 @@ export class Google implements OnInit {
                 err
               );
 
-
               console.error(
                 'Status:',
                 err?.status
               );
 
-
               console.error(
-                'Backend Error:',
+                'Backend error:',
                 err?.error
               );
 
 
-              if (
-                err?.error?.detail
-              ) {
+              if (err?.error?.detail) {
 
                 this.errorMessage =
                   err.error.detail;
 
-              }
-              else {
+              } else {
 
                 this.errorMessage =
                   'Google-ით შესვლა ვერ შესრულდა.';
@@ -210,11 +210,9 @@ export class Google implements OnInit {
     });
 
 
-    // Google ღილაკის container
+    // Google button
     const button =
-      document.getElementById(
-        'googleButton'
-      );
+      document.getElementById('googleButton');
 
 
     if (!button) {
@@ -227,22 +225,18 @@ export class Google implements OnInit {
     }
 
 
-    // Google Login ღილაკის დახატვა
     google.accounts.id.renderButton(
-
       button,
-
       {
         theme: 'outline',
         size: 'large',
         width: 300
       }
-
     );
 
 
     console.log(
-      '✅ Google Login button rendered'
+      '✅ Google button rendered'
     );
 
   }
