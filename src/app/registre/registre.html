@@ -1,0 +1,10 @@
+<div class="box">
+    <input type="text"  [(ngModel)]="user.name"  [placeholder]="'REGISTER_FORM.name' | translate">
+    <input type="email" [(ngModel)]="user.email"  [placeholder]="'REGISTER_FORM.email' | translate">
+    <input type="password" [(ngModel)]="user.password"  [placeholder]="'REGISTER_FORM.password' | translate">
+   <button (click)="register()"> {{ 'REGISTER_FORM.button' | translate }}</button>
+    @if (message) {
+    <p class="success">{{ message }}</p>}
+    @else if (errorMessage) {
+    <p class="error">{{ errorMessage }}</p>}
+</div>

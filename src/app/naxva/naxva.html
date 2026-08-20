@@ -1,0 +1,51 @@
+<div class="box">
+    <div class="conteinerfilter">
+        <input [(ngModel)]="searchText" [placeholder]="'REPORTS.SEARCH' | translate" class="serch" (input)="onSearch()" (keyup.enter)="filterReports()">
+        <select [(ngModel)]="selectedCity" (change)="filterReports()" class="filterReports">
+            <option [ngValue]="null"> {{ 'REPORTS.ALL_CITIES' | translate }}</option>
+            <option *ngFor="let city of cities" [ngValue]="city.id">{{ 'CITIES.' + city.name_ka | translate }}</option>
+        </select>
+        <select [(ngModel)]="selectedCategory" (change)="filterReports()" class="filterReports">
+            <option [ngValue]="null"> {{ 'REPORTS.ALL_PROBLEMS' | translate }}</option>
+            <option *ngFor="let category of categories" [ngValue]="category.id"> {{ 'CATEGORIES.' + category.name_ka | translate }}</option>
+        </select>
+        <div class="clear">
+            <button type="button" class="filter-btn" (click)="filterReports()">{{ 'REPORTS.FILTER' | translate }}</button>
+            <button type="button" class="clear-filter" (click)="clearFilters()"> {{ 'REPORTS.Clear' | translate }}</button> 
+        </div>
+        <div class="boxone">
+            <div *ngIf="noReportsMessage" class="no-reports"> {{ noReportsMessage | translate }}</div>
+        </div>
+    </div>
+    <div class="conteiner">
+        <div class="report-card" *ngFor="let report of reports">
+            <div class="image-wrapper" *ngIf="report.image_url">
+                <img   class="image" *ngIf="report.image_url" [src]="report.image_url.startsWith('http') ? report.image_url : 'https://python-api-g48t.onrender.com' + report.image_url" >
+                <span class="status" [ngClass]="report.status">{{ 'STATUS.' + report.status | translate }}</span>
+                @if (isAdmin) {
+                <div class="deleteReport">
+                    <button (click)="deleteReport(report.id)" class="delete"> {{ 'REPORTS.DELETE' | translate }}</button>
+                    <button (click)="solveReport(report.id)" class="solve"> {{ 'REPORTS.SOLVE' | translate }}</button>
+                </div>}
+            </div>
+            <div class="report-content">
+                <div class="info-item">
+                    <span class="label">{{ 'REPORTS.CITY' | translate }}</span>
+                    <p class="value">{{ ('CITIES.' + getCityName(report.city_id)) | translate }}</p>
+                </div>
+                <div class="info-item">
+                    <span class="label">{{ 'REPORTS.CATEGORY' | translate }}</span>
+                    <p class="value">{{ ('CATEGORIES.' + getCategoryName(report.category_id)) | translate }}</p>
+                </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <span class="label">{{ 'REPORTS.PROBLEM' | translate }}</span>
+                        <p class="value">{{ currentLang === 'ka' ? report.description_ka : report.description_en }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

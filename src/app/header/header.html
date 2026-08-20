@@ -1,0 +1,36 @@
+<header>
+    <div class="conteiner"><img [src]="icone" class="icone" alt="icone"></div>
+    <button class="burger" (click)="menuOpen = !menuOpen">☰</button>
+    <nav class="nav" [class.open]="menuOpen">
+        <div class="content" id="sun"   >
+            <button class="theme-btn"  (click)="toggleTheme()">{{ darkMode ? '☀️' : '🌙' }}</button>
+            <div class="language">
+                <button (click)="changeLanguage('ka')" class="ka"> ქარ </button>
+                <button (click)="changeLanguage('en')" class="lan"> Eng</button>
+            </div>
+        </div>
+        <a routerLink="/"  routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="menuOpen = false" class="home"> {{ 'HEADER.HOME' | translate }}</a>
+        <a routerLink="/naxva" routerLinkActive="active"(click)="menuOpen = false" class="home" >{{ 'HEADER.PROBLEMS' | translate }}</a>
+        <a routerLink="/page"routerLinkActive="active" (click)="menuOpen = false" class="home"> {{ 'HEADER.STATISTICS' | translate }}</a>
+        <div class="mobile-buttons">
+             @if (!isLoggedIn) {
+            <button class="login" type="button"(click)="openLogin()">{{ 'HEADER.LOGIN' | translate }} </button> } @else {
+            <button class="login"  type="button" (click)="logout(); menuOpen = false">{{ 'HEADER.LOGOUT' | translate }} </button>}
+            <button class="application"  (click)="goToPage(); menuOpen = false"> {{ 'HEADER.APPLICATION' | translate }} </button>
+        </div>
+    </nav>
+    <div class="conteiner1">
+        <button class="application" (click)="goToPage()"> {{ 'HEADER.APPLICATION' | translate }} </button>
+        @if (!isLoggedIn) {
+        <button class="login" type="button" (click)="openLogin()"> {{ 'HEADER.LOGIN' | translate }}</button>} @else {
+        <button class="login" type="button" (click)="logout()">{{ 'HEADER.LOGOUT' | translate }}</button> } </div>
+        @if (showLogin) {
+        <app-loginpop   (close)="closeLogin()"  (loginDone)="loginDone()"></app-loginpop>}
+        <div class="content1">
+            <button class="theme-btn"(click)="toggleTheme()">{{ darkMode ? '☀️' : '🌙' }}</button>
+            <div class="language">
+                <button (click)="changeLanguage('ka')" class="ka"> ქარ </button>
+                <button (click)="changeLanguage('en')" class="lan"> Eng</button>
+        </div>
+    </div>
+</header>

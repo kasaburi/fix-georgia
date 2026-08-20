@@ -1,0 +1,48 @@
+<div class="conteiner">
+    <div class="conteiner1">
+        <div class="box">
+            <select [(ngModel)]="problem.city_id"   class="city" required>
+                <option [ngValue]="null" class="cityid" disabled > {{ 'REPORTS.ADD.SELECT_CITY' | translate }}</option> 
+                <option *ngFor="let city of cities" [value]="city.id">{{ 'CITIES.' + city.name_ka | translate }}</option>
+            </select>
+            <select [(ngModel)]="problem.category_id"   class="category" required>
+                <option [ngValue]="null"class="categoryid" disabled> {{ 'REPORTS.ADD.SELECT_CATEGORY' | translate }}</option>
+                <option  *ngFor="let category of categories" [value]="category.id">{{ 'CATEGORIES.' + category.name_ka | translate }}</option>
+            </select>
+        </div>
+        <div class="upload-box">
+            <label>
+                <input type="file"  class="file-input" (change)="onFileSelected($event)" accept="image/*">
+                <div class="upload-content">
+                    <span class="icon">📷</span>
+                    <p>{{ 'REPORTS.ADD.UPLOAD_PHOTO' | translate }}</p>
+                    <small class="small">{{ 'REPORTS.ADD.FILE_FORMAT' | translate }}</small>
+                </div>
+            </label>
+            <p *ngIf="selectedFile" class="p1">{{ 'REPORTS.ADD.SELECTED_PHOTO' | translate }}: {{ selectedFile.name }}</p>
+        </div>
+    </div>
+    <div class="problem-text-box">
+         <div class="input-group">
+            <label>{{ 'REPORTS.ADD.WHAT_HAPPENED' | translate }}</label>
+            <input type="text" [(ngModel)]="problem.title"  id="inputtext" name="title" required="" [placeholder]="'REPORTS.ADD.TITLE_PLACEHOLDER' | translate" >
+        </div>
+        <div class="input-group">
+            <label>{{ 'REPORTS.ADD.MORE_INFO' | translate }}</label>
+            <textarea [(ngModel)]="problem.description"  id="inputtext" name="description"  [placeholder]="'REPORTS.ADD.DESCRIPTION_PLACEHOLDER' | translate"></textarea>
+        </div>
+    </div>
+    <div class="container2">
+        <h3>🗺️ {{ 'REPORTS.ADD.MAP' | translate }}</h3>
+        <div id="map"></div>
+        <div class="coordinates">
+              <p class="latitude">
+                <strong>{{ 'REPORTS.ADD.LATITUDE' | translate }}:</strong>{{ problem.latitude || ('REPORTS.ADD.NOT_SELECTED' | translate) }}</p>
+            <p class="latitude"><strong>{{ 'REPORTS.ADD.LONGITUDE'  | translate }}:</strong>{{ problem.longitude || ('REPORTS.ADD.NOT_SELECTED' | translate) }}</p>
+        </div>
+    </div>
+    <div *ngIf="message" class="title" [class.success]="messageType === 'success'" [class.error]="messageType === 'error'"> {{message}}</div>
+    <button (click)="submitProblem()"  class="sent"> {{ 'REPORTS.ADD.SUBMIT' | translate }}</button>
+</div>
+
+

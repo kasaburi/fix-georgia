@@ -1,0 +1,383 @@
+.dashboard {
+  width: 96%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 120px 20px 50px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  box-sizing: border-box;
+}
+
+
+.dashboard h1 {
+  margin: 0 0 10px;
+
+  font-size: 32px;
+  font-weight: 700;
+}
+
+
+.cards {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+
+.card {
+  background: white;
+  border-radius: 18px;
+  width: 300px;
+  padding: 24px;
+  min-height: 80px;
+  box-sizing: border-box;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.06);
+  border-left: 5px solid transparent;
+}
+
+
+.card h3 {
+  margin: 0 0 15px;
+  font-size: 16px;
+}
+
+
+.card p {
+  margin: 0;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+
+.total {
+  border-left-color: #4f46e5;
+}
+
+
+.solved {
+  border-left-color: #16a34a;
+}
+
+
+.progress {
+  border-left-color: orange;
+}
+
+
+.pending {
+  border-left-color: crimson;
+}
+
+
+.statistics-box {
+  width: 100%;
+  background: white;
+  border-radius: 18px;
+  padding: 25px;
+  box-sizing: border-box;
+  box-shadow:0 8px 25px rgba(0, 0, 0, 0.06);
+}
+
+
+.statistics-box h2 {
+  margin: 0 0 25px;
+
+  font-size: 22px;
+}
+
+.stat-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+
+.stat-row {
+  width: 100%;
+}
+
+
+.stat-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+
+.stat-info span {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+
+.stat-info strong {
+  font-size: 15px;
+}
+
+
+
+.bar {
+  width: 100%;
+  height: 10px;
+  background: #eeeeee;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+
+.bar-fill {
+  height: 100%;
+  border-radius: 20px;
+  transition: width 0.3s ease;
+}
+
+.city-bar {
+  background: #4f46e5;
+}
+
+
+.solved-bar {
+  background: #16a34a;
+}
+
+
+.progress-bar {
+  background: orange;
+}
+
+
+.pending-bar {
+  background: crimson;
+}
+
+
+.category-bar {
+  background: #8b5cf6;
+}
+
+
+
+
+
+
+
+
+@media screen and (min-width: 951px)  and (max-width: 1350px){
+
+  .dashboard {
+    width: 100%;
+    padding-top: 85px;
+    gap: 18px;
+    align-items: center;
+  }
+
+
+
+
+
+
+.total,
+.solved,
+.progress,
+.pending{
+
+
+flex-direction: row;
+gap:24px;
+
+
+
+
+}
+
+
+.cards{
+  justify-content: center;
+}
+
+.card{
+  width: 250px;
+  min-height: 30px !important;
+  height: auto;
+}
+
+.card p{
+  font-size: 16px;
+}
+
+
+
+  .chart-box {
+    padding: 16px;
+    border-radius: 16px;
+    width: 40vw;
+    height: auto;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 501px)  and (max-width: 950px){
+
+  .dashboard {
+    width: 100%;
+    justify-items: center !important;
+    padding-top: 85px;
+    gap: 18px;
+    margin: 0;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .card {
+    padding: 18px;
+    border-radius: 16px;
+    min-height: 80px;
+    height: auto;
+    width: 40vw;
+    font-style: row;
+  }
+
+.charts{
+    min-height: 25vh;
+    height: auto;
+   justify-items: center;
+    grid-template-columns: 1fr;
+    gap: 18px;
+  
+}
+
+    .cards {
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 18px;
+    border-radius: 16px;
+    width: 90%;
+
+  }
+
+
+
+
+  .chart-box {
+    padding: 16px;
+    border-radius: 16px;
+    width: 80vw;
+    height: auto;
+  }
+
+  .card h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+  }
+
+  .card p {
+    font-size: 24px;
+  }
+
+  h1 {
+    font-size: 28px;
+  }
+
+  h2 {
+    font-size: 22px;
+  }
+
+
+  .total{
+  height: 40px;
+  font-size: 12px;
+  width: 250px;
+
+}
+
+
+
+.solved{
+width: 250px;
+height: 40px;
+}
+
+
+
+.progress{
+height: 40px;
+width: 250px;
+
+}
+
+
+
+.pending{
+ height: 40px;
+
+width: 250px;
+}
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 600px) {
+
+  .dashboard {
+    width: 100%;
+    padding-top: 16px;
+  }
+
+
+  .cards {
+    justify-content: center;
+    width: 100%;
+  }
+
+
+  .card {
+    max-height: 120px;
+    padding: 8px;
+    width: 290px;
+    height: auto;
+  }
+
+
+  .card p {
+    font-size: 30px;
+  }
+
+
+  .statistics-box {
+    padding: 18px;
+  }
+
+}
+

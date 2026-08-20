@@ -1,0 +1,10 @@
+<div class="box">
+    <input type="email" [(ngModel)]="user.email"  [placeholder]="'LOGIN_FORM.email' | translate">
+    <input type="password" [(ngModel)]="user.password"[placeholder]="'LOGIN_FORM.password' | translate">
+    <button (click)="login()">{{ 'LOGIN_FORM.button' | translate }}</button>
+    @if (errorMessage) {
+    <p class="error">
+        {{ errorMessage }}
+    </p>}
+</div>
+  

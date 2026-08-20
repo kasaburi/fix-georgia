@@ -1,0 +1,135 @@
+.global-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: #fff;
+}
+
+.loader-box {
+  text-align: center;
+}
+
+.map-container {
+  position: relative;
+
+  width: 380px;
+  height: 320px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.georgia-map {
+  width: 340px;
+  height: auto;
+
+  display: block;
+
+  opacity: 0;
+
+  animation: mapAppear 1s ease forwards;
+}
+
+/* რუკის მსუბუქი გამოჩენა */
+@keyframes mapAppear {
+  0% {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ქალაქის წერტილები */
+.city {
+  position: absolute;
+
+  width: 10px;
+  height: 10px;
+
+  border-radius: 50%;
+
+  background: #333;
+
+  opacity: 0;
+
+  animation: cityPulse 2s ease-in-out infinite;
+}
+
+/* დაახლოებით ქალაქების მდებარეობები */
+
+.city-tbilisi {
+  left: 58%;
+  top: 54%;
+  animation-delay: 0.4s;
+}
+
+.city-kutaisi {
+  left: 39%;
+  top: 47%;
+  animation-delay: 0.7s;
+}
+
+.city-batumi {
+  left: 25%;
+  top: 60%;
+  animation-delay: 1s;
+}
+
+.city-gori {
+  left: 48%;
+  top: 48%;
+  animation-delay: 1.3s;
+}
+
+.city-telavi {
+  left: 70%;
+  top: 42%;
+  animation-delay: 1.6s;
+}
+
+@keyframes cityPulse {
+
+  0% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+
+  30% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+
+  70% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+
+  100% {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+.loader-box p {
+  margin-top: 5px;
+
+  font-size: 17px;
+  font-weight: 500;
+
+  color: #555;
+}

@@ -1,0 +1,14 @@
+<div class="overlay">
+    <div class="popup">
+        <button class="close" (click)="closePopup()">✕</button>
+        <div *ngIf="mode === ''"  class="go">
+            <h2> {{ 'AUTH_POPUP.title' | translate }}</h2>
+            <button (click)="openMode('login')">{{ 'AUTH_POPUP.login' | translate }}</button>
+            <button (click)="openMode('register')">{{ 'AUTH_POPUP.register' | translate }}</button>
+            <button (click)="openMode('google')"> {{ 'AUTH_POPUP.google' | translate }}</button>
+        </div>
+        <app-auth  *ngIf="mode === 'login'" (loginSuccess)="onSuccess($event)"> </app-auth>
+        <app-registre *ngIf="mode === 'register'"></app-registre>
+        <app-google *ngIf="mode === 'google'" (googleSuccess)="onSuccess($event)"></app-google>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+<main>
+  <div class="border">
+    <div class="container">
+        <div class="box">
+            <p class="red">{{ 'home.digital_platform' | translate }}</p>
+        </div>
+        <div class="box1">
+          <diV class="box2">
+            <h1 class="it"  id="features">{{ 'home.hero_report' | translate }}</h1>
+            <P class="fix"> {{ 'home.hero_fix' | translate }}</P>  
+            <p class="it">{{ 'home.hero_solve' | translate }}</p>
+          </diV>
+          <div>
+            <p class="georgia"> <b>Fix Georgia</b>{{ 'home.hero_description' | translate }}</p>
+          </div>
+        </div>
+        <div class="box3">
+            <button class="Problem" (click)="goToPage()">{{ 'home.report_button' | translate }}</button>
+        </div>
+      </div>
+      <div class="container1">
+        <div class="floating-card left-card">
+          <div class="icon">✔</div>
+          <div class="one">
+            <h4>{{ 'home.solved' | translate }}</h4>
+            <p>{{ 'home.days' | translate }}</p>
+          </div>
+        </div>
+        <img class="mob" [src]="img" alt="image">
+        <div class="floating-card right-card">
+        <div class="icon purple">📍</div>
+        <div class="one">
+          <h4>{{ 'home.near_problems' | translate }}</h4>
+          <p>{{ 'home.near' | translate }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container2">
+    <p class="cit"> {{ 'home.connected_cities' | translate }}</p>
+    <div class="cities">@for (city of cities; track $index) {
+      <button class="button">{{ 'CITIES.' + city.name_ka | translate }}</button>}
+    </div>
+  </div>
+  <div class="work" id="fast">
+    <div  class="line1">
+      <div class="line"></div><p> {{ 'home.how_works' | translate }}</p><div class="line"></div>
+    </div>
+    <h3> {{ 'home.four_steps' | translate }}</h3>
+    <p class="fast" > {{ 'home.steps_description' | translate }}</p>
+  </div>
+  <div class="home">
+    <div class="problem">
+      <div class="boxing">
+        <i class="fa-solid fa-magnifying-glass"></i>
+      </div>
+      <p > {{ 'home.step1_title' | translate }}</p>
+      <p class="text"> {{ 'home.step1_text' | translate }}</p>
+    </div>
+    <div class="problem">
+      <div class="boxing">
+        <i class="fa-solid fa-camera"></i>
+      </div>
+        <p > {{ 'home.step2_title' | translate }}</p>
+        <p class="text">{{ 'home.step2_text' | translate }}</p>
+    </div>
+    <div class="problem">
+      <div class="boxing">
+          <i class="fa-solid fa-paper-plane"></i>
+      </div>
+      <p >{{ 'home.step3_title' | translate }}</p>
+      <p class="text">{{ 'home.step3_text' | translate }}</p>
+    </div>
+    <div class="problem">
+      <div class="boxing">
+        <i class="fa-solid fa-circle-check"></i>
+      </div>
+      <p >{{ 'home.step4_title' | translate }}</p>
+      <p class="text">{{ 'home.step4_text' | translate }}</p>
+    </div>
+  </div>
+  <div class="Challenges">
+    <div class="Challenges1">
+      <p class="text1"> {{ 'home.challenges' | translate }}</p>
+      <p  class="fast"> {{ 'home.challenge_text' | translate }}<p>
+      <div class="categories">@for (category of categories; track $index) {
+        <button class="categoriesbutton">
+          <i [class]="getIcon(category.name_ka )"></i>{{ 'CATEGORIES.' + category.name_ka | translate }}
+        </button>}
+    </div>
+  </div>
+  <img class="problemimg" [src]="problem" alt="problem">
+  </div>
+  <div class="citychange">
+    <div class="citychange1">
+      <h5>{{ 'home.change_city' | translate }}</h5>
+      <p class="texp"> {{ 'home.change_text' | translate }}</p>
+      <button class="fixbutton"  (click)="goToPage()" >{{ 'home.report_button' | translate }}</button>
+      <div class="free"><svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 640 640"><!--!Font Awesome Free v7.3.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2026 Fonticons, Inc.--><path fill="rgb(171, 171, 171)" d="M320 576C178.6 576 64 461.4 64 320C64 178.6 178.6 64 320 64C461.4 64 576 178.6 576 320C576 461.4 461.4 576 320 576zM438 209.7C427.3 201.9 412.3 204.3 404.5 215L285.1 379.2L233 327.1C223.6 317.7 208.4 317.7 199.1 327.1C189.8 336.5 189.7 351.7 199.1 361L271.1 433C276.1 438 282.9 440.5 289.9 440C296.9 439.5 303.3 435.9 307.4 430.2L443.3 243.2C451.1 232.5 448.7 217.5 438 209.7z"/></svg><p> {{ 'home.free' | translate }}</p></div>
+    </div>
+    <img class="tbilisi" [src]="tbilisi" alt="image">
+  </div>
+</main>
+

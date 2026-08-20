@@ -1,0 +1,263 @@
+footer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35vh;
+    background:rgba(0, 0, 0, 0.901);
+}
+
+.icone{
+    width: 250px;
+}
+
+.media{
+    display: flex;
+    width: 120px;
+    height: auto;
+}
+
+.conteiner,
+.conteiner1,
+.conteiner3 {
+    display: flex;
+    align-items: center;
+    align-content: center;
+    color: rgba(255, 255, 255, 0.666);
+    flex-direction: column;
+    gap:24px;
+    width: 25vw;
+    font-size: 14px;
+    text-align: center;
+    height: 25vh;
+}
+
+a{
+    color: rgba(255, 255, 255, 0.666);
+    text-decoration: none; 
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+a:hover{
+     color: rgba(255, 255, 255, 0.923);
+}
+
+.Fix{
+    font-size: 24px;
+    color: rgba(255, 255, 255, 0.841);
+}
+
+
+
+
+
+.box{
+    display: flex;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (min-width: 601px) and (max-width: 1400px)
+{
+
+
+
+footer{
+    flex-direction: column;
+    min-height: 30vh;
+    height: auto;
+}
+
+.icone{
+    width: 150px;
+
+}
+
+.media{
+    display: flex;
+    width: 120px;
+    height: auto;
+}
+
+
+
+.conteiner{
+    flex-direction: column;
+    padding-top: 16px;
+    min-height: 20vh;
+    height: auto;
+    width: 100%;
+
+}
+
+.conteiner1{
+
+    width: 40%;
+}
+.box{
+
+    gap: 16px;
+    justify-content: center;
+    width: 100%;
+    min-height: 25vh;
+}
+
+.Georgia{
+    font-size: 14px;
+    width: 100%;
+}
+
+.conteiner3{
+    min-height: 8vh;
+    width: 70%;
+}
+
+
+a{
+    color: rgba(255, 255, 255, 0.666);
+    text-decoration: none; 
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+a:hover{
+     color: rgba(255, 255, 255, 0.923);
+}
+
+.Fix{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.841);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width: 600px){
+
+footer{
+    flex-direction: column;
+    min-height: 30vh;
+    height: auto;
+    width: auto;
+}
+
+.icone{
+    width: 150px;
+
+}
+
+.media{
+    display: flex;
+    width: 120px;
+    height: auto;
+}
+
+
+
+.conteiner{
+    flex-direction: column;
+    padding-top: 16px;
+    min-height: 20vh;
+    height: auto;
+    width: 80%;
+    padding: 16px;
+
+
+}
+
+.conteiner1{
+    width: 40%;
+}
+.box{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+    width: 80%;
+    min-height: 25vh;
+
+}
+
+.Georgia{
+    font-size: 14px;
+    width: 100%;
+}
+
+.conteiner3{
+    min-height: 8vh;
+    width: 70%;
+}
+
+
+a{
+    color: rgba(255, 255, 255, 0.666);
+    text-decoration: none; 
+    font-size: 14px;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+a:hover{
+     color: rgba(255, 255, 255, 0.923);
+}
+
+.Fix{
+    font-size: 18px;
+    color: rgba(255, 255, 255, 0.841);
+}
+
+
+
+} 
+
+
+
+
+
+
+
+
+
+
+
+

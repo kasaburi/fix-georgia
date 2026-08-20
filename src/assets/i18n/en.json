@@ -1,0 +1,212 @@
+{
+  "HEADER": {
+    "HOME": "Home",
+    "PROBLEMS": "Problems",
+    "STATISTICS": "Statistics",
+    "LOGIN": "Login",
+    "LOGOUT": "Logout",
+    "APPLICATION": "Report"
+  },
+
+
+
+  "CITIES": {
+    "თბილისი": "Tbilisi",
+    "ბათუმი": "Batumi",
+    "ქუთაისი": "Kutaisi",
+    "მცხეთა": "Mtskheta",
+    "რუსთავი": "Rustavi",
+    "გორი": "Gori",
+    "ზუგდიდი": "Zugdidi",
+    "ფოთი": "Poti",
+    "სამტრედია": "Samtredia",
+    "ახალციხე": "Akhaltsikhe",
+    "ოზურგეთი": "Ozurgeti",
+    "სენაკი": "Senaki",
+    "ხაშური": "Khashuri",
+    "ბორჯომი": "Borjomi",
+    "თელავი": "Telavi"
+  },
+
+  "CATEGORIES": {
+    "დაზიანებული გზები": "Damaged Roads",
+    "გაუმართავი განათება": "Broken Street Lights",
+    "ნაგვის დაგროვება": "Garbage Accumulation",
+    "დაზიანებული სკვერები": "Damaged Parks",
+    "წყლის გაჟონვა": "Water Leakage",
+    "საგზაო ნიშნები": "Road Signs"
+  },
+
+  "STATUS": {
+    "pending": "Pending",
+    "approved": "Approved",
+    "resolved": "Resolved",
+    "rejected": "Rejected",
+    "solved": "Solved"
+  },
+
+
+
+
+
+
+"REPORTS": {
+   "NO_RESULTS": "No problems found for the selected filters",
+  "LOAD_ERROR": "Failed to load data",
+  "SEARCH": "Search...",
+  "ALL_CITIES": "All cities",
+  "ALL_PROBLEMS": "All problems",
+  "FILTER": "Filter",
+  "Clear": "clear",
+
+  "PROBLEM": "Problem",
+  "REASON": "Reason",
+  "CATEGORY": "Category",
+  "CITY": "City",
+
+  "DELETE": "Delete",
+  "SOLVE": "Solve",
+
+  "ADD": {
+    "SELECT_CITY": "Select city",
+    "SELECT_CATEGORY": "Select problem",
+    "UPLOAD_PHOTO": "Upload problem photo",
+    "FILE_FORMAT": "PNG, JPG format",
+    "SELECTED_PHOTO": "Selected photo",
+    "WHAT_HAPPENED": "What happened?",
+    "MORE_INFO": "Additional information",
+    "TITLE_PLACEHOLDER": "Example: Damaged street lighting",
+    "DESCRIPTION_PLACEHOLDER": "Provide more details about the problem...",
+    "MAP": "🗺️ Mark on the map",
+    "LATITUDE": "Latitude",
+    "LONGITUDE": "Longitude",
+    "NOT_SELECTED": "Not selected",
+    "SUBMIT": "Submit"
+  }
+},
+
+
+
+
+
+
+
+
+
+  "home": {
+    "digital_platform": "Digital Civic Platform",
+
+    "hero_report": "Report",
+    "hero_fix": "Identify",
+    "hero_solve": "Solve",
+
+    "hero_description": "Fix Georgia connects citizens with municipalities — for fast and transparent resolution of city problems. Report an issue, send it to the municipality and track its progress in real time.",
+
+    "report_button": "Report a Problem",
+
+    "solved": "Solved!",
+    "days": "In 3 days",
+
+    "near_problems": "12 Problems",
+    "near": "Nearby",
+
+    "connected_cities": "Connected Cities",
+
+    "how_works": "How it works",
+    "four_steps": "4 Simple Steps",
+    "steps_description": "From problem to solution — quickly, transparently, effectively",
+
+    "step1_title": "Discover a Problem",
+    "step1_text": "Notice an infrastructure problem? Open Fix Georgia and create a report.",
+
+    "step2_title": "Photo and Location",
+    "step2_text": "Upload a photo, mark the exact location on the map and choose a category.",
+
+    "step3_title": "Submit",
+    "step3_text": "The system automatically sends information to the relevant municipality.",
+
+    "step4_title": "Resolution",
+    "step4_text": "Track the status and receive a notification when the problem is solved.",
+
+    "challenges": "Daily Challenges",
+
+    "challenge_text": "Cities across Georgia face infrastructure problems every day. Fix Georgia helps citizens quickly and easily report issues to the relevant services.",
+
+    "change_city": "Change Your City Today",
+
+    "change_text": "Join thousands of citizens who make Georgian cities better places to live",
+
+    "free": "Free · No registration required"
+  },
+
+
+  "STATISTICS": {
+  "title": "📊 Statistics",
+  "total": "Total Problems",
+  "solved": "Solved",
+  "progress": "In Progress",
+  "pending": "Pending",
+  "cities": "By Cities",
+  "statuses": "Statuses",
+  "categories": "By Categories",
+    "count": "Count",
+  "problems": "Problems"
+},
+
+
+"AUTH_POPUP": {
+  "title": "Login",
+  "login": "Authorization",
+  "register": "Registration",
+  "google": "Login with Google"
+},
+"LOGIN_FORM": {
+  "email": "Email",
+  "password": "Password",
+  "button": "Login"
+},
+
+
+"REGISTER_FORM": {
+  "name": "Name",
+  "email": "Email",
+  "password": "Password",
+  "button": "Register"
+},
+
+
+
+"REGISTER_MESSAGES": {
+  "success": "Registration completed successfully.",
+  "failed": "Registration failed.",
+  "email_exists": "A user with this email already exists.",
+  "password_short": "Password must contain at least 8 characters.",
+  "required": "Please fill in all fields."
+},
+
+
+"LOGIN_MESSAGES": {
+  "failed": "Login failed.",
+  "invalid": "Email or password is incorrect.",
+  "not_found": "User not found.",
+  "server": "Unable to connect to server."
+},
+
+
+  "FOOTER": {
+    "DESCRIPTION": "A digital platform that connects citizens with municipalities.",
+    "PLATFORM": "Platform",
+    "HOW_IT_WORKS": "How it works",
+    "FEATURES": "Features",
+    "STATISTICS": "Statistics",
+    "COMPANY": "Company",
+    "FOR_MUNICIPALITIES": "For municipalities",
+    "ABOUT_US": "About us",
+    "LOADING": "Loading data..."
+  
+}
+
+
+
+
+}
