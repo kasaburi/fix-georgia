@@ -23,6 +23,7 @@ export class Header implements OnInit {
 
   public icone = 'assets/icone.png';
 
+
   showLogin = false;
 
   isLoggedIn = false;

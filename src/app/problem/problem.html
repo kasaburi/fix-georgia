@@ -1,5 +1,5 @@
 <div class="conteiner">
-    <div class="conteiner1">
+    <div class="conteiner1" id="box">
         <div class="box">
             <select [(ngModel)]="problem.city_id"   class="city" required>
                 <option [ngValue]="null" class="cityid" disabled > {{ 'REPORTS.ADD.SELECT_CITY' | translate }}</option> 
@@ -7,7 +7,7 @@
             </select>
             <select [(ngModel)]="problem.category_id"   class="category" required>
                 <option [ngValue]="null"class="categoryid" disabled> {{ 'REPORTS.ADD.SELECT_CATEGORY' | translate }}</option>
-                <option  *ngFor="let category of categories" [value]="category.id">{{ 'CATEGORIES.' + category.name_ka | translate }}</option>
+                <option  *ngFor="let category of categories" class="one" [value]="category.id">{{ 'CATEGORIES.' + category.name_ka | translate }}</option>
             </select>
         </div>
         <div class="upload-box">

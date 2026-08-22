@@ -57,7 +57,7 @@
   "ALL_CITIES": "All cities",
   "ALL_PROBLEMS": "All problems",
   "FILTER": "Filter",
-  "Clear": "clear",
+  "Clear": "Clear",
 
   "PROBLEM": "Problem",
   "REASON": "Reason",
@@ -202,7 +202,7 @@
     "COMPANY": "Company",
     "FOR_MUNICIPALITIES": "For municipalities",
     "ABOUT_US": "About us",
-    "LOADING": "Loading data..."
+    "LOADING": "Data is loading...."
   
 }
 

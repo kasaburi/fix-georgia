@@ -40,34 +40,134 @@ body {
 body.dark .it,
 body.dark .georgia,
 body.dark .cit {
-    color: white;
+     color: rgba(255, 255, 255, 0.863);
 }
 
 
 
 body.dark .work,
 body.dark .fast{
-    color: white;
+  color: rgba(255, 255, 255, 0.863);
 
 }
 
 body.dark .report-content{
-    color: white;
+     color: rgba(255, 255, 255, 0.863);
 }
 
 
 body.dark header{
-     background-color: rgb(245, 247, 255);
+      color: rgba(255, 255, 255, 0.863);
 }
 
 body.dark .problem,
-body.dark .text{
-    color: white;
+body.dark .text,
+body.dark .button,
+body.dark .card,
+body.dark .categoriesbutton
+{
+   color: rgba(255, 255, 255, 0.863);
      background-color: rgb(1, 6, 23);
 
 }
 
+body.dark .card,
+body.dark .statistics-box
 
-body.dark .boxing{
-     background-color: rgb(2, 13, 46);
+
+{
+     color: rgba(255, 255, 255, 0.863);
+     background-color: rgba(14, 24, 59, 0.755);
 }
+
+
+
+body.dark .text1{
+  color: rgba(255, 255, 255, 0.863);
+}
+
+body.dark .report-card p,
+body.dark #h1
+{
+    color: rgba(255, 255, 255, 0.863);
+}
+
+body.dark .report-card{
+    
+     background-color: rgba(0, 2, 7, 0.545);
+     
+}
+
+
+
+body.dark .report-content{
+      color: rgba(255, 255, 255, 0.863);
+}
+
+
+
+body.dark .button:hover,
+body.dark .categoriesbutton:hover{
+      background-color: rgba(1, 6, 23, 0.479);
+}
+
+
+
+
+
+
+
+
+body.dark .boxing,
+body.dark #box,
+body.dark .problem-text-box,
+body.dark .container2
+
+
+{
+    
+       color: rgba(255, 255, 255, 0.863);
+         background-color: rgb(1, 6, 23);
+}
+
+
+body.dark .coordinates{
+     background-color: rgb(1, 6, 23);
+    color: rgba(255, 255, 255, 0.863);
+}
+
+
+body.dark .latitude strong,
+body.dark .latitude
+
+{
+
+ color: rgba(255, 255, 255, 0.863);
+}
+
+
+body.dark .latitude{
+ color: rgba(255, 255, 255, 0.721) !important;
+}
+
+
+
+body.dark .city,
+body.dark .category
+
+
+
+{
+    background-color: #636262d1;
+    border: #0000007a;
+ color: black;
+}
+
+body.dark #inputtext
+{
+   border: rgba(0, 2, 7, 0.545);
+      background-color: rgba(0, 2, 7, 0.545);
+
+}
+  
+

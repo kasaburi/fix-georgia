@@ -97,10 +97,10 @@ handleUserChanged = () => {
 
 
 
-
-
-
-
+getCityName(cityId: number | string): string {
+  const city = this.cities.find(c => Number(c.id) === Number(cityId));
+  return city?.name_ka || '';
+}
 checkUserRole(): void {
 
   const user = localStorage.getItem('user');
@@ -301,40 +301,84 @@ getCategoryName(categoryId: number | string) {
 
 noReportsMessage: string | null = null;
 
+isFilterApplied = false;
+
+
+
+// filterReports() {
+
+//   this.isFilterApplied = true;
+//   this.noReportsMessage = null;
+
+//   const search = this.searchText?.trim() || undefined;
+//   const cityId = this.selectedCity ?? undefined;
+//   const categoryId = this.selectedCategory ?? undefined;
+//   const status = this.selectedStatus ?? undefined;
+
+//   console.log('FILTER:', {
+//     search,
+//     cityId,
+//     categoryId,
+//     status
+//   });
+
+//   this.api.getFilteredReports(
+//     cityId,
+//     categoryId,
+//     status,
+//     search
+//   ).subscribe({
+
+//     next: (res: any) => {
+
+//       console.log('FILTER RESULT:', res);
+
+//       this.reports = Array.isArray(res)
+//         ? res
+//         : res?.data ?? [];
+
+//       if (this.reports.length === 0) {
+//         this.noReportsMessage = 'REPORTS.NO_RESULTS';
+//       }
+
+//     },
+
+//     error: (err) => {
+
+//       console.error('FILTER ERROR:', err);
+
+//       this.reports = [];
+//       this.noReportsMessage = 'REPORTS.LOAD_ERROR';
+
+//     }
+
+//   });
+// }
+
+
 
 
 filterReports() {
 
   this.noReportsMessage = null;
 
-  const search =
-    this.searchText?.trim() || undefined;
+  const search = this.searchText?.trim() || undefined;
+  const cityId = this.selectedCity ?? undefined;
+  const categoryId = this.selectedCategory ?? undefined;
+  const status = this.selectedStatus ?? undefined;
 
-  const cityId =
-    this.selectedCity ?? undefined;
-
-  const categoryId =
-    this.selectedCategory ?? undefined;
-
-  const status =
-    this.selectedStatus ?? undefined;
-
-
-  console.log('FILTER:', {
-    search,
-    cityId,
-    categoryId,
-    status
-  });
-
+  console.log('========== FILTER CLICK ==========');
+  console.log('search:', search);
+  console.log('cityId:', cityId);
+  console.log('categoryId:', categoryId);
+  console.log('status:', status);
 
   this.api.getFilteredReports(
     cityId,
     categoryId,
     status,
     search
-  )
-  .subscribe({
+  ).subscribe({
 
     next: (res: any) => {
 
@@ -344,35 +388,25 @@ filterReports() {
         ? res
         : res?.data ?? [];
 
-
       if (this.reports.length === 0) {
-
-        this.noReportsMessage =
-          'REPORTS.NO_RESULTS';
-
+        this.noReportsMessage = 'REPORTS.NO_RESULTS';
       }
 
+      this.cdr.detectChanges();
     },
 
     error: (err) => {
 
-      console.error(
-        'FILTER ERROR:',
-        err
-      );
+      console.error('FILTER ERROR:', err);
 
       this.reports = [];
+      this.noReportsMessage = 'REPORTS.LOAD_ERROR';
 
-      this.noReportsMessage =
-        'REPORTS.LOAD_ERROR';
-
+      this.cdr.detectChanges();
     }
 
   });
-
 }
-
-
 
 clearFilters() {
 
@@ -397,15 +431,15 @@ clearFilters() {
 
 
 
-getCityName(cityId: number) {
+// getCityName(cityId: number) {
 
-  const city = this.cities.find(
-    c => Number(c.id) === Number(cityId)
-  );
+//   const city = this.cities.find(
+//     c => Number(c.id) === Number(cityId)
+//   );
 
-  return city ? city.name_ka : '';
+//   return city ? city.name_ka : '';
 
-}
+// }
 
 
 

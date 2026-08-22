@@ -1,254 +1,81 @@
 <div class="dashboard">
-
-  <h1>{{ 'STATISTICS.title' | translate }}</h1>
-
-
-  <!-- ========================= -->
-  <!-- SUMMARY CARDS -->
-  <!-- ========================= -->
-
-  <div class="cards">
-
-    <div class="card total">
-      <h3>{{ 'STATISTICS.total' | translate }}</h3>
-      <p>{{ summary?.total_reports ?? 0 }}</p>
+    <h1 id="h1">{{ 'STATISTICS.title' | translate }}</h1>
+    <div class="cards">
+        <div class="card total">
+            <h3>{{ 'STATISTICS.total' | translate }}</h3>
+            <p>{{ summary?.total_reports ?? 0 }}</p>
+        </div>
+        <div class="card solved">
+            <h3>{{ 'STATISTICS.solved' | translate }}</h3>
+            <p>{{ summary?.solved ?? 0 }}</p>
+        </div>
+        <div class="card progress">
+            <h3>{{ 'STATISTICS.progress' | translate }}</h3>
+            <p>{{ summary?.in_progress ?? 0 }}</p>
+        </div>
+        <div class="card pending">
+            <h3>{{ 'STATISTICS.pending' | translate }}</h3>
+            <p>{{ summary?.pending ?? 0 }}</p>
+        </div>
     </div>
-
-
-    <div class="card solved">
-      <h3>{{ 'STATISTICS.solved' | translate }}</h3>
-      <p>{{ summary?.solved ?? 0 }}</p>
+    <div class="statistics-box">
+        <h2>{{ 'STATISTICS.cities' | translate }}</h2>
+        <div class="stat-list">
+            <div class="stat-row" *ngFor="let city of cities">
+                <div class="stat-info">
+                    <span>{{ 'CITIES.' + city.city | translate }}</span>
+                    <strong>{{ city.reports ?? 0 }}</strong>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill city-bar" [style.width.%]="getCityPercentage(city.reports)"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    <div class="card progress">
-      <h3>{{ 'STATISTICS.progress' | translate }}</h3>
-      <p>{{ summary?.in_progress ?? 0 }}</p>
+    <div class="statistics-box">
+        <h2>{{ 'STATISTICS.statuses' | translate }}</h2>
+        <div class="stat-list">
+            <div class="stat-row">
+                <div class="stat-info">
+                    <span> {{ 'STATISTICS.solved' | translate }}</span>
+                    <strong> {{ summary?.solved ?? 0 }}</strong>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill solved-bar" [style.width.%]="getStatusPercentage(  summary?.solved ) "></div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-info">
+                    <span>{{ 'STATISTICS.progress' | translate }} </span>
+                    <strong>{{ summary?.in_progress ?? 0 }}</strong>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill progress-bar" [style.width.%]=" getStatusPercentage( summary?.in_progress ) "></div>
+                </div>
+            </div>
+            <div class="stat-row">
+                <div class="stat-info">
+                    <span> {{ 'STATISTICS.pending' | translate }}</span>
+                    <strong> {{ summary?.pending ?? 0 }}</strong>
+                </div>
+                <div class="bar">
+                    <div  class="bar-fill pending-bar" [style.width.%]="getStatusPercentage( summary?.pending ) "></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-
-    <div class="card pending">
-      <h3>{{ 'STATISTICS.pending' | translate }}</h3>
-      <p>{{ summary?.pending ?? 0 }}</p>
+    <div class="statistics-box">
+        <h2>{{ 'STATISTICS.categories' | translate }}</h2>
+        <div class="stat-list">
+            <div class="stat-row" *ngFor="let category of categories">
+                <div class="stat-info">
+                    <span>{{ 'CATEGORIES.' + category.category | translate }}</span>
+                    <strong>{{ category.count ?? 0 }}</strong>
+                </div>
+                <div class="bar">
+                    <div class="bar-fill category-bar" [style.width.%]="getCategoryPercentage(category.count)"></div>
+                </div>
+            </div>
+        </div>
     </div>
-
-  </div>
-
-
-
-  <!-- ========================= -->
-  <!-- CITIES -->
-  <!-- ========================= -->
-
-  <div class="statistics-box">
-
-    <h2>
-      {{ 'STATISTICS.cities' | translate }}
-    </h2>
-
-
-    <div class="stat-list">
-
-      <div
-        class="stat-row"
-        *ngFor="let city of cities"
-      >
-
-        <div class="stat-info">
-
-          <span>
-            {{ city.city }}
-          </span>
-
-          <strong>
-            {{ city.reports ?? 0 }}
-          </strong>
-
-        </div>
-
-
-        <div class="bar">
-
-          <div
-            class="bar-fill city-bar"
-            [style.width.%]="
-              getCityPercentage(city.reports)
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ========================= -->
-  <!-- STATUS -->
-  <!-- ========================= -->
-
-  <div class="statistics-box">
-
-    <h2>
-      {{ 'STATISTICS.statuses' | translate }}
-    </h2>
-
-
-    <div class="stat-list">
-
-
-      <div class="stat-row">
-
-        <div class="stat-info">
-
-          <span>
-            {{ 'STATISTICS.solved' | translate }}
-          </span>
-
-          <strong>
-            {{ summary?.solved ?? 0 }}
-          </strong>
-
-        </div>
-
-
-        <div class="bar">
-
-          <div
-            class="bar-fill solved-bar"
-            [style.width.%]="
-              getStatusPercentage(
-                summary?.solved
-              )
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="stat-row">
-
-        <div class="stat-info">
-
-          <span>
-            {{ 'STATISTICS.progress' | translate }}
-          </span>
-
-          <strong>
-            {{ summary?.in_progress ?? 0 }}
-          </strong>
-
-        </div>
-
-
-        <div class="bar">
-
-          <div
-            class="bar-fill progress-bar"
-            [style.width.%]="
-              getStatusPercentage(
-                summary?.in_progress
-              )
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-
-
-      <div class="stat-row">
-
-        <div class="stat-info">
-
-          <span>
-            {{ 'STATISTICS.pending' | translate }}
-          </span>
-
-          <strong>
-            {{ summary?.pending ?? 0 }}
-          </strong>
-
-        </div>
-
-
-        <div class="bar">
-
-          <div
-            class="bar-fill pending-bar"
-            [style.width.%]="
-              getStatusPercentage(
-                summary?.pending
-              )
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-
-    </div>
-
-  </div>
-
-
-
-  <!-- ========================= -->
-  <!-- CATEGORIES -->
-  <!-- ========================= -->
-
-  <div class="statistics-box">
-
-    <h2>
-      {{ 'STATISTICS.categories' | translate }}
-    </h2>
-
-
-    <div class="stat-list">
-
-      <div
-        class="stat-row"
-        *ngFor="let category of categories"
-      >
-
-        <div class="stat-info">
-
-          <span>
-            {{ category.category }}
-          </span>
-
-          <strong>
-            {{ category.count ?? 0 }}
-          </strong>
-
-        </div>
-
-
-        <div class="bar">
-
-          <div
-            class="bar-fill category-bar"
-            [style.width.%]="
-              getCategoryPercentage(
-                category.count
-              )
-            "
-          ></div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
-
 </div>

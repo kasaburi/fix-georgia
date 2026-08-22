@@ -19,7 +19,7 @@
             <button class="application"  (click)="goToPage(); menuOpen = false"> {{ 'HEADER.APPLICATION' | translate }} </button>
         </div>
     </nav>
-    <div class="conteiner1">
+    <div class="conteinerbox">
         <button class="application" (click)="goToPage()"> {{ 'HEADER.APPLICATION' | translate }} </button>
         @if (!isLoggedIn) {
         <button class="login" type="button" (click)="openLogin()"> {{ 'HEADER.LOGIN' | translate }}</button>} @else {

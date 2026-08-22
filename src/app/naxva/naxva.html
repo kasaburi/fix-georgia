@@ -1,11 +1,11 @@
 <div class="box">
     <div class="conteinerfilter">
-        <input [(ngModel)]="searchText" [placeholder]="'REPORTS.SEARCH' | translate" class="serch" (input)="onSearch()" (keyup.enter)="filterReports()">
-        <select [(ngModel)]="selectedCity" (change)="filterReports()" class="filterReports">
+        <input [(ngModel)]="searchText" [placeholder]="'REPORTS.SEARCH' | translate" class="serch" (input)="onSearch()" >
+        <select [(ngModel)]="selectedCity" class="filterReports">
             <option [ngValue]="null"> {{ 'REPORTS.ALL_CITIES' | translate }}</option>
             <option *ngFor="let city of cities" [ngValue]="city.id">{{ 'CITIES.' + city.name_ka | translate }}</option>
         </select>
-        <select [(ngModel)]="selectedCategory" (change)="filterReports()" class="filterReports">
+        <select [(ngModel)]="selectedCategory" class="filterReports">
             <option [ngValue]="null"> {{ 'REPORTS.ALL_PROBLEMS' | translate }}</option>
             <option *ngFor="let category of categories" [ngValue]="category.id"> {{ 'CATEGORIES.' + category.name_ka | translate }}</option>
         </select>
