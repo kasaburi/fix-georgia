@@ -217,12 +217,13 @@ main{
     border-radius: 18px;
     box-shadow: 0 15px 40px rgba(0,0,0,.12);
     z-index: 10;
-    width: 200px;
+    min-width: 250px;
+    width: auto;
 }
 
 .icon{
-    width:55px;
-    height:55px;
+    min-width:55px;
+    min-height:55px;
     border-radius:50%;
     background:#22c55ea0;
     color:#fff;
@@ -230,9 +231,13 @@ main{
     justify-content:center;
     align-items:center;
     font-size:24px;
+
 }
 
+
+
 .icon.purple{
+    min-width:55px;
     background:#d4181b29 ;
 }
 
@@ -693,10 +698,9 @@ h5{
 
 
 .container2{
-
+    width: 90vw ;
     min-height: 5vh;
     height: auto;
-    width: 75%;
     flex-direction: column;
     margin: 0;
 
@@ -880,6 +884,11 @@ h5{
     width: 100%;
 }
 
+.floating-card{
+    min-width: 70%;
+    min-height: 90px;
+
+}
 
 
 }
@@ -1010,31 +1019,40 @@ padding-top: 40px;
 }
 
 
-
+.floating-card{
+    min-width: 340px;
+    min-width: 200px;
+    min-height: 10vh;
+    height: auto;
+    padding: 16px;
+}
+h4{
+    font-size: 14px !important;
+}
 
 
 .icon{
-    min-width: 32px;
-    width: auto;
-    min-height: 32px;
-    height: 32px;
+    width: 32px;
+    min-height:48px;
+    height: auto;
     font-size: 16px;
  
 
 }
 
 
-
+/* 
 .iconpurple{
     width: 32px;
     height: 32px;
 
-}
+} */
 .left-card{
     width: 180px;
     height: 56px;
-    left: 32px;
+    left: 22px;
     bottom: 30px;
+
 
 }
 

@@ -1,173 +1,553 @@
-/* You can add global styles to this file, and also import other style files */
-*{
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
     font-family: "Noto Serif Georgian", sans-serif;
 }
 
 :root {
-
     --bg-color: #ffffff;
-    --text-color: #111111;
-    --card-color: #f5f5f5;
-    --border-color: #dddddd;
+    --text-color: #111827;
 
+    --card-color: #f5f7fb;
+    --surface-color: #ffffff;
+
+    --border-color: #dfe4ec;
+
+    --secondary-text: #64748b;
+
+    --input-bg: #ffffff;
+    --input-border: #d7dce5;
+
+    --button-bg: #172554;
+    --button-text: #ffffff;
+
+    --hover-bg: #eef2ff;
+}
+
+
+
+body.dark footer{
+       background-color: #111827;
+ border-top: 1px solid rgba(140, 140, 140, 0.316) ;
+   
+}
+
+body.dark header{
+    background-color: #111827;
+ border-bottom: 1px solid rgba(140, 140, 140, 0.316) ;
+  
+}
+
+body.dark header a {
+    color: #ffffff !important;
+}
+
+body.dark header a:hover {
+    color: #cbd5e1 !important;
+}
+
+body.dark header a:active {
+    color: #add0fb !important;
+}
+/* =========================================================
+   DARK MODE
+========================================================= */
+body.dark .lan,
+body.dark  .ka {
+    background: #5e719a76 !important;
+    height: 24px;
+    color: #f8fafc !important;
+    border: 1px solid #3b4d706e !important;
+}
+
+body.dark .lan:hover,
+body.dark  .ka:hover {
+    
+    background: #334b78 !important;
+    color: #ffffff !important;
 }
 
 
 .dark {
+    --bg-color: #0b1120;
+    --text-color: #f1f5f9;
 
-    --bg-color: #121212;
-    --text-color: #000000;
-    --card-color: #1e1e1e;
-    --border-color: #333333;
+    --card-color: #111a2e;
+    --surface-color: #151f35;
 
+    --border-color: #26344d;
+
+    --secondary-text: #a8b3c7;
+
+    --input-bg: #111a2e;
+    --input-border: #33415c;
+
+    --button-bg: #24365c;
+    --button-text: #ffffff;
+
+    --hover-bg: #1d2a45;
 }
 
 
+/* =========================================================
+   BODY
+========================================================= */
 
 body {
-
-    margin:0;
-    background: var(--bg-color);
+    margin: 0;
+    background-color: var(--bg-color);
     color: var(--text-color);
-    transition: .3s;
 
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
 }
 
 
+/* =========================================================
+   TEXT
+========================================================= */
 
 body.dark .it,
 body.dark .georgia,
-body.dark .cit {
-     color: rgba(255, 255, 255, 0.863);
-}
-
-
-
+body.dark .cit,
 body.dark .work,
-body.dark .fast{
-  color: rgba(255, 255, 255, 0.863);
-
-}
-
-body.dark .report-content{
-     color: rgba(255, 255, 255, 0.863);
-}
-
-
-body.dark header{
-      color: rgba(255, 255, 255, 0.863);
-}
-
-body.dark .problem,
+body.dark .fast,
 body.dark .text,
-body.dark .button,
-body.dark .card,
-body.dark .categoriesbutton
-{
-   color: rgba(255, 255, 255, 0.863);
-     background-color: rgb(1, 6, 23);
-
-}
-
-body.dark .card,
-body.dark .statistics-box
-
-
-{
-     color: rgba(255, 255, 255, 0.863);
-     background-color: rgba(14, 24, 59, 0.755);
-}
-
-
-
-body.dark .text1{
-  color: rgba(255, 255, 255, 0.863);
-}
-
+body.dark .text1,
+body.dark .problem,
+body.dark .problem-text-box,
+body.dark .report-content,
 body.dark .report-card p,
-body.dark #h1
-{
-    color: rgba(255, 255, 255, 0.863);
-}
-
-body.dark .report-card{
-    
-     background-color: rgba(0, 2, 7, 0.545);
-     
+body.dark #h1,
+body.dark header {
+    color: var(--text-color);
 }
 
 
+/* =========================================================
+   CARDS / BOXES
+========================================================= */
 
-body.dark .report-content{
-      color: rgba(255, 255, 255, 0.863);
+body.dark .card,
+body.dark .statistics-box,
+body.dark .report-card,
+body.dark .boxing,
+body.dark #box,
+body.dark .container2,
+body.dark .coordinates,
+body.dark .problem,
+body.dark .problem-text-box {
+    color: var(--text-color);
+
+    background-color: var(--card-color);
+
+    border-color: var(--border-color);
+
+    transition:
+        background-color 0.3s ease,
+        border-color 0.3s ease,
+        color 0.3s ease;
 }
 
+
+/* =========================================================
+   REPORT CARD
+========================================================= */
+
+body.dark .report-card {
+    background-color: var(--surface-color);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+body.dark .button,
+body.dark .categoriesbutton {
+    color: var(--button-text);
+
+    background-color: var(--button-bg);
+
+    border-color: var(--border-color);
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease;
+}
 
 
 body.dark .button:hover,
-body.dark .categoriesbutton:hover{
-      background-color: rgba(1, 6, 23, 0.479);
+body.dark .categoriesbutton:hover {
+    background-color: var(--hover-bg);
+}
+body.dark h4{
+    color: black;
+}
+
+/* =========================================================
+   INPUTS
+========================================================= */
+
+body.dark #inputtext,
+body.dark input,
+body.dark textarea,
+body.dark select {
+    color: var(--text-color);
+
+    background-color: var(--input-bg);
+
+    border: 1px solid var(--input-border);
+
+    outline: none;
 }
 
 
-
-
-
-
-
-
-body.dark .boxing,
-body.dark #box,
-body.dark .problem-text-box,
-body.dark .container2
-
-
-{
-    
-       color: rgba(255, 255, 255, 0.863);
-         background-color: rgb(1, 6, 23);
+body.dark input::placeholder,
+body.dark textarea::placeholder {
+    color: #7f8da6;
 }
 
 
-body.dark .coordinates{
-     background-color: rgb(1, 6, 23);
-    color: rgba(255, 255, 255, 0.863);
-}
-
-
-body.dark .latitude strong,
-body.dark .latitude
-
-{
-
- color: rgba(255, 255, 255, 0.863);
-}
-
-
-body.dark .latitude{
- color: rgba(255, 255, 255, 0.721) !important;
-}
-
-
+/* =========================================================
+   CITY / CATEGORY
+========================================================= */
 
 body.dark .city,
-body.dark .category
+body.dark .category {
+    color: #e2e8f0;
 
+    background-color: #17223a;
 
-
-{
-    background-color: #636262d1;
-    border: #0000007a;
- color: black;
+    border: 1px solid #33415c;
 }
 
-body.dark #inputtext
-{
-   border: rgba(0, 2, 7, 0.545);
-      background-color: rgba(0, 2, 7, 0.545);
 
+body.dark .city:hover,
+body.dark .category:hover {
+    background-color: #24324d;
 }
+
+
+/* =========================================================
+   COORDINATES
+========================================================= */
+
+body.dark .coordinates {
+    background-color: #111a2e;
+    color: var(--text-color);
+}
+
+
+body.dark .latitude,
+body.dark .latitude strong {
+    color: var(--text-color);
+}
+
+
+/* =========================================================
+   LINKS
+========================================================= */
+
+body.dark a {
+    color: #dde6ea;
+}
+
+
+body.dark a:hover {
+    color: rgb(164, 188, 218);
+}
+
+
+/* =========================================================
+   SMOOTH TRANSITION
+==
+======================================================= */
+
+body,
+.card,
+.statistics-box,
+.report-card,
+.button,
+.categoriesbutton,
+.city,
+.category,
+input,
+textarea,
+select,
+.coordinates {
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease;
+}
+
+
+
+
+
+
+
+
+
+/* 🌙 DARK MODE - BURGER */
+
+body.dark .burger {
+    /* background: #111a2e;
+    border: 1px solid #26344d; */
+    color: #f1f5f9;
+}
+
+body.dark .burger span {
+    background: #f1f5f9;
+}
+
+
+/* 🌙 DARK MODE - MOBILE MENU */
+
+body.dark .nav {
+    background: #0f172a;
+    border-left: 1px solid #26344d;
+    box-shadow: -10px 0 35px rgba(0, 0, 0, 0.45);
+}
+
+
+/* მენიუს ლინკები */
+
+body.dark .nav a {
+    color: #f1f5f9 !important;
+}
+
+body.dark .nav a:hover {
+    color: #93c5fd !important;
+    background: #17223a;
+}
+
+
+/* აქტიური გვერდი */
+
+body.dark .nav a.active {
+    color: #93c5fd !important;
+    background: #17223a;
+}
+
+
+/* 🌙 Theme ღილაკი */
+
+body.dark .nav .theme-btn {
+    background: #17223a;
+    color: #f8fafc;
+    border: 1px solid #33415c;
+}
+
+
+/* 🌐 ენის ღილაკები */
+
+body.dark .nav .language button {
+    background: #17223a;
+    color: #e2e8f0;
+    border: 1px solid #33415c;
+}
+
+body.dark .nav .language button:hover {
+    background: #24365c;
+    color: #ffffff;
+}
+
+
+/* 🔘 Login / Application */
+
+body.dark .nav .login,
+body.dark .nav .application {
+    background: #17223a;
+    color: #f8fafc;
+    border: 1px solid #33415c;
+}
+
+body.dark .nav .login:hover,
+body.dark .nav .application:hover {
+    background: #24365c;
+}
+
+
+/* 🌑 მუქი overlay */
+
+body.dark .menu-overlay {
+    background: rgba(0, 0, 0, 0.65);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========================================
+   AUTH POPUP - DARK MODE
+========================================= */
+
+/* ფონის overlay */
+
+body.dark .overlay {
+    background: rgba(0, 0, 0, 0.72);
   
+}
 
+
+body.dark .overlay h2 {
+
+    color: white !important;
+}
+/* მთავარი popup */
+
+body.dark .popup {
+    background: #111a2e;
+    color: #f1f5f9 !;
+
+    border: 1px solid #26344d;
+
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.55);
+}
+
+
+/* სათაური */
+
+body.dark .popup h2 {
+    color: #f8fafc;
+}
+
+
+/* ყველა ღილაკი */
+
+body.dark .popup button {
+    color: #f1f5f9;
+    background: #17223a;
+
+    border: 1px solid #33415c;
+
+    transition:
+        background-color 0.3s ease,
+        color 0.3s ease,
+        border-color 0.3s ease,
+        transform 0.2s ease;
+}
+
+
+/* ღილაკის hover */
+
+body.dark .popup button:hover {
+    background: #24365c;
+    color: #ffffff;
+    border-color: #4b6085;
+
+    transform: translateY(-1px);
+}
+
+
+/* Close ღილაკი */
+
+body.dark .popup .close {
+    color: #cbd5e1;
+    background: transparent;
+    border: none;
+}
+
+
+
+
+/* Close hover */
+
+body.dark .popup .close:hover {
+    color: #ffffff;
+    background: rgba(147, 197, 253, 0.12);
+}
+
+
+/* Login / Register / Google ღილაკების კონტეინერი */
+
+body.dark .go {
+    color: #f1f5f9 !important;
+}
+
+
+/* =========================================
+   AUTH FORM ELEMENTS
+========================================= */
+
+body.dark .popup input,
+body.dark .popup textarea,
+body.dark .popup select {
+    background: #0f172a;
+    color: #f1f5f9;
+
+    border: 1px solid #33415c;
+}
+
+
+
+
+
+
+body.dark .popup input::placeholder,
+body.dark .popup textarea::placeholder {
+    color: #7f8da6;
+}
+
+
+body.dark .popup input:focus,
+body.dark .popup textarea:focus,
+body.dark .popup select:focus {
+    border-color: #5b8def;
+
+    outline: none;
+
+    box-shadow:
+        0 0 0 3px rgba(91, 141, 239, 0.15);
+}
+
+
+/* =========================================
+   AUTH FORM TEXT
+========================================= */
+
+body.dark .popup label {
+    color: #cbd5e1;
+}
+
+
+body.dark .popup p {
+    color: #a8b3c7;
+}
+
+
+/* ლინკები */
+
+body.dark .popup a {
+    color: #93c5fd;
+}
+
+
+body.dark .popup a:hover {
+    color: #bfdbfe;
+}
